@@ -1,0 +1,85 @@
+/* FINDING QUADRATIC EQUATION USING FLAG( using i, flag= which is used to control the flow. true or false)*/
+
+#include<stdio.h>
+#include<math.h>
+struct comple
+{
+         float r1;
+         float r2;
+}s;
+
+
+
+
+int findRoots(int a, int b, int c,int i)
+
+{
+         int d;
+         float r1,r2,n,m;
+         d = ((b*b)- (4*a*c));
+         printf("d=%d ",d);
+        if (d>0)
+                {
+                        r1= (-b+sqrt(d)/(2*a));
+                        r2 = (-b-sqrt(d)/(2*a));
+
+                        if (i==0)
+                                  return(r1);
+                         else
+                                  return(r2);
+
+                }
+
+
+        else  if(d==0)
+                {
+                         r1=  -b/(2*a);
+                         r2=r1;
+                         if (i==0)
+                                  return(r1);
+                         else
+                                  return(r2);
+
+
+                }
+        else
+
+                {
+                        r1 = sqrt(-d)/(2*a);
+                        r2= -b*(2*a);
+                        if (i==0)
+                                  return(r1);
+                         else
+                                  return(r2);
+
+
+                }
+
+
+}
+
+
+int  main()
+{
+         int  a,b,c, i=0;
+         float n,m;
+         printf(" enter the values of a,b,c ");
+         scanf("%d%d%d", &a,&b,&c);
+         for(i=0;i<2;i++)
+          {     m=findRoots(a,b,c,i);
+
+       //n=findRoots(a,b,c,i);
+              printf("value =%f\n",m);
+          }
+}
+
+
+
+
+
+
+
+
+
+
+
