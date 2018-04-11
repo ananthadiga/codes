@@ -1,5 +1,5 @@
 
- #include<stdio.h>
+#include<stdio.h>
 #include<math.h>
 struct complex
 {
@@ -10,12 +10,12 @@ struct complex
 
 
 
-float  findRoots(int a, int b, int c,struct complex  *y)
+float  findRoots(float  a, float  b, float  c,struct complex  *y)
 
 {
-         int  d;
+         float  d;
          d = ((b*b)- (4*a*c));
-         printf("d=%d ",d);
+         printf("d=%f ",d);
         if (d>0)
                 {
                         y->realpart= (-b+sqrt(d)/(2*a));
@@ -49,19 +49,26 @@ float  findRoots(int a, int b, int c,struct complex  *y)
 
 int  main()
 {
-         int  a,b,c, i=0;
+         float  a,b,c;
+         int i;
          struct complex  s;
          printf(" enter the values of a,b,c ");
-         scanf("%d%d%d", &a,&b,&c);
-         findRoots(a,b,c,&s);
-         printf("r1 =%f\tr2=%f\t",s.realpart,s.imaginary);
+         scanf("%f%f%f", &a,&b,&c);
+         i= findRoots(a,b,c,&s);
+         switch (i)
+                {
+                        case 0:
 
+                                printf("\n roots are real and distict \nr1 =%f\t\nr2=%f\t",s.realpart,s.imaginary);
+                                break;
+                        case 1:
+                                printf(" \n roots and same and equal\n r1 =%f\t\nr2=%f\t",s.realpart,s.imaginary);
+                                break;
+                        case 3:
+                                printf(" \n  roots are imaginary\n r1 =i%f\t\nr2=i%f\t",s.realpart,s.imaginary);
+                                break;
+                }
 }
-
-
-
-
-
 
 
 
